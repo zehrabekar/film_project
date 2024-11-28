@@ -32,7 +32,21 @@ UI.prototype.clearInputs = function(element1,element2,element3){
 
 //Fonksiyonların prototipte tanımlanması, her UI nesnesi için yeniden oluşturulmasını engeller.
 //Eğer clearInputs fonksiyonu her UI nesnesi içinde tanımlansaydı, bellekte aynı işlev için birden fazla kopya tutulmuş olurdu.
+UI.prototype.displayMessages = function(message,type){
+    const cardBody = document.querySelector(".card-body");
+    //Alert divini oluşturma
 
+    const div = document.createElement("div");
+
+    div.className = `alert alert-${type}`;
+    div.textContent = message;
+
+    cardBody.appendChild(div);
+
+    setTimeout(function(){
+      div.remove();
+    },1000);
+}
 
 
 
