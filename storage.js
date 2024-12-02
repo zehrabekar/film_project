@@ -25,3 +25,20 @@ Storage.prototype.getFilmsFromStorage = function(){
 }
 
 //JSON formatından JavaScript nesnesine dönüştürmek, bir metin (string) olarak saklanan JSON verisini, JavaScript'in kullanabileceği bir nesne veya dizi yapısına çevirmek anlamına gelir.
+
+
+Storage.prototype.deleteFilmFromStorage = function(filmTitle){
+    let films = this.getFilmsFromStorage();
+
+    films.forEach(function(film,index){
+
+        if(film.title === filmTitle){
+            films.splice(index,1);
+        }
+    })
+
+localStorage.setItem("films",JSON.stringify(films));
+
+
+
+}
